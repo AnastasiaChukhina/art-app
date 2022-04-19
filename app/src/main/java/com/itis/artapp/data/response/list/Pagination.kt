@@ -1,0 +1,16 @@
+package com.itis.artapp.data.response.list
+
+import com.google.gson.annotations.SerializedName
+
+data class Pagination(
+    @SerializedName("current_page")
+    val currentPage: Int?,
+    @SerializedName("limit")
+    val limit: Int?,
+    @SerializedName("offset")
+    val offset: Int?,
+    @SerializedName("total")
+    val total: Int?,
+    @SerializedName("total_pages")
+    val totalPages: Int?
+)
