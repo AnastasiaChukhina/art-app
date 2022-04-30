@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ArtworkTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="ArtworkTextViewAddition">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="layout_constraintWidth_percent">.65</item>
+    </style>
+
+    <style name="ArtworkTextViewAdditionTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+</resources>
