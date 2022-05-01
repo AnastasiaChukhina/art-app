@@ -13,6 +13,7 @@ import com.itis.artapp.databinding.FragmentListBinding
 import com.itis.artapp.domain.converters.ArtworkDataConverter
 import com.itis.artapp.domain.models.ArtworkSimple
 import com.itis.artapp.presentation.extensions.hideBackButton
+import com.itis.artapp.presentation.extensions.setTitle
 import com.itis.artapp.presentation.extensions.showMessage
 import com.itis.artapp.presentation.presenters.ListPresenter
 import com.itis.artapp.presentation.rv.ArtworkAdapter
@@ -101,6 +102,7 @@ class ListFragment : MvpAppCompatFragment(), ArtworkListView {
 
     private fun setActionBarAttrs() {
         hideBackButton()
+        setTitle(getString(R.string.app_name))
     }
 
     private fun initAdapter() {

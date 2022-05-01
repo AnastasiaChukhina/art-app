@@ -3,7 +3,7 @@ package com.itis.artapp.domain.models
 data class ArtworkDetails(
     val id: Long,
     val imageId: String,
-    val title: String,
+    val title: String?,
     val description: String,
     val author: String,
     val placeOfOrigin: String?,
