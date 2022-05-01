@@ -3,14 +3,16 @@ package com.itis.artapp.presentation.rv
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.itis.artapp.domain.converters.ArtworkDataConverter
 import com.itis.artapp.domain.models.ArtworkSimple
 
 class ArtworkAdapter(
+    private val converter: ArtworkDataConverter,
     private val action: (Long) -> Unit
 ) : ListAdapter<ArtworkSimple, ArtworkHolder>(ArtworkDiffUtilsCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtworkHolder =
-        ArtworkHolder.create(parent, action)
+        ArtworkHolder.create(parent, converter, action)
 
     override fun onBindViewHolder(holder: ArtworkHolder, position: Int) =
         holder.bind(getItem(position))

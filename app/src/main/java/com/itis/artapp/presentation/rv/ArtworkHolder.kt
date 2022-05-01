@@ -7,15 +7,12 @@ import coil.load
 import com.itis.artapp.databinding.ItemArtworkBinding
 import com.itis.artapp.domain.converters.ArtworkDataConverter
 import com.itis.artapp.domain.models.ArtworkSimple
-import javax.inject.Inject
 
 class ArtworkHolder(
     private val binding: ItemArtworkBinding,
+    private val converter: ArtworkDataConverter,
     private val action: (Long) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
-
-    @Inject
-    lateinit var converter: ArtworkDataConverter
 
     fun bind(item: ArtworkSimple) {
         with(binding) {
@@ -30,6 +27,7 @@ class ArtworkHolder(
     companion object {
         fun create(
             parent: ViewGroup,
+            converter: ArtworkDataConverter,
             action: (Long) -> Unit
         ) = ArtworkHolder(
             ItemArtworkBinding.inflate(
@@ -37,6 +35,7 @@ class ArtworkHolder(
                 parent,
                 false
             ),
+            converter,
             action
         )
     }

@@ -1,14 +1,16 @@
 package com.itis.artapp.presentation.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.itis.artapp.R
 import com.itis.artapp.databinding.FragmentListBinding
+import com.itis.artapp.domain.converters.ArtworkDataConverter
 import com.itis.artapp.domain.models.ArtworkSimple
 import com.itis.artapp.presentation.extensions.hideBackButton
 import com.itis.artapp.presentation.extensions.showMessage
@@ -17,12 +19,17 @@ import com.itis.artapp.presentation.rv.ArtworkAdapter
 import com.itis.artapp.presentation.rv.itemDecorstors.SpaceItemDecorator
 import com.itis.artapp.presentation.views.ArtworkListView
 import dagger.hilt.android.AndroidEntryPoint
+import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ListFragment : Fragment(R.layout.fragment_list), ArtworkListView {
+
+class ListFragment : MvpAppCompatFragment(), ArtworkListView {
+
+    @Inject
+    lateinit var converter: ArtworkDataConverter
 
     @Inject
     @InjectPresenter
@@ -34,11 +41,17 @@ class ListFragment : Fragment(R.layout.fragment_list), ArtworkListView {
     private lateinit var binding: FragmentListBinding
     private lateinit var artworkAdapter: ArtworkAdapter
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_list, container, false)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentListBinding.bind(view)
-        artworkAdapter = ArtworkAdapter { openDetails(it) }
+        artworkAdapter = ArtworkAdapter(converter) { openDetails(it) }
 
         initSearchView()
         setActionBarAttrs()
