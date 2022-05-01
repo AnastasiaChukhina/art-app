@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ArtGallery</string>
+    <string name="artwork_name">Artwork name</string>
+    <string name="query_hint">Search by artwork name</string>
+    <string name="artwork_author">Author name</string>
+    <string name="date_title">Date:</string>
+    <string name="place_of_origin">Place of origin:</string>
+    <string name="display">Display:</string>
+    <string name="dimension">Dimension:</string>
+    <string name="date_value">1900-2000</string>
+    <string name="place_of_origin_value">France</string>
+    <string name="display_value">Oil on canvas</string>
+    <string name="dimension_value">207.5 × 308.1 cm</string>
+    <string name="no_artwork_found">Artworks not found</string>
 </resources>

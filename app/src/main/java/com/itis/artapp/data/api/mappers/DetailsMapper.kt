@@ -11,7 +11,7 @@ class DetailsMapper @Inject constructor() : ModelMapper<DetailsResponse, Artwork
         return ArtworkDetails(
             data.id,
             data.imageId,
-            data.dateQualifierTitle,
+            data.title,
             data.thumbnail.altText,
             data.artistTitle,
             data.placeOfOrigin,
